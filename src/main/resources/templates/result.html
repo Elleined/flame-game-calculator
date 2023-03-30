@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+   <meta charset="UTF-8">
+   <title>Love Calculator</title>
+</head>
+<body>
+<th:block th:object="${user}">
+   <h1 th:text="'The Relationship between ' +  *{yourName} + ' and ' + *{crushName} + ' is'"></h1>
+   <img th:src="${verdictImage}" alt="verdict">
+</th:block>
+
+</body>
+</html>

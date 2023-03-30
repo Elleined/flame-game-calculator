@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+   <meta charset="UTF-8">
+   <title>Love Calculator</title>
+</head>
+<body>
+<div align="center">
+   <th:block th:object="${user}">
+      <h1 th:text="*{yourName} + ' & ' + *{crushName}"></h1>
+      <h1 th:if="*{yourName} == 'Denielle'"> HI THIS DENIELLE</h1>
+      <h1 th:if="*{yourName} != 'Denielle'"> THIS IS NOT DENIELLE</h1>
+      <h1 th:if="*{yourName} == 'Denielle' or *{yourName} == 'Denielle Mar'"> THIS IS EITHER DENIELLE OR DEENIELLE
+         MAR</h1>
+      <h1 th:if="*{yourName} == 'Denielle' and  *{crushName} == 'Mickaela'"> THIS IS DENIELLE AND MICKAELA</h1>
+      <h1 th:if="*{yourName.length()} > 8"> Name length greater than 8
+         <span th:replace="add :: fragment"></span>
+      </h1>
+
+
+   </th:block>
+</div>
+
+
+</body>
+</html>
