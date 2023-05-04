@@ -3,7 +3,6 @@ package com.lovecalculator.SpringWebPractice.controller;
 import com.lovecalculator.SpringWebPractice.dto.User;
 import com.lovecalculator.SpringWebPractice.service.FlameService;
 import jakarta.validation.Valid;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -12,14 +11,15 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import java.util.Objects;
-
 @Controller
 @RequestMapping
 public class FlameController {
 
-    @Autowired
-    private FlameService flameService;
+    private final FlameService flameService;
+
+    public FlameController(FlameService flameService) {
+        this.flameService = flameService;
+    }
 
     @GetMapping
     public String goToIndex(@ModelAttribute User user) {
@@ -28,14 +28,13 @@ public class FlameController {
 
     @PostMapping("/calculate")
     public String calculate(@Valid @ModelAttribute User user,
-                            BindingResult bindingResult,
+                            BindingResult result,
                             Model model) {
 
-        if (bindingResult.hasErrors()) {
-
-            String warningMessage = Objects.requireNonNull(bindingResult.getFieldError()).getDefaultMessage();
-            model.addAttribute("modalTitle", "Warning");
-            model.addAttribute("modalMessage", warningMessage);
+        if (result.hasErrors()) return "index";
+        if (flameService.isNameSameLength(user)) {
+            model.addAttribute("isSameLength", true);
+            model.addAttribute("sameLengthErrorMessage", "Please enter two different names between 2 and 100 characters long!");
             return "index";
         }
         String verdictName = flameService.getVerdictName( user );

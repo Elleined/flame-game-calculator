@@ -11,12 +11,11 @@ import java.util.Iterator;
 import java.util.List;
 
 @Service
-public class FlameServiceImpl implements FlameService {
+public class FlameService {
 
     @Autowired
     private FlameGame flameGame;
 
-    @Override
     public String getVerdictName(User user) {
         flameGame.setYourName(user.getYourName());
         flameGame.setCrushName(user.getCrushName());
@@ -24,7 +23,10 @@ public class FlameServiceImpl implements FlameService {
         return flameGame.getVerdict();
     }
 
-    @Override
+    public boolean isNameSameLength(User user) {
+        return user.getYourName().length() == user.getCrushName().length();
+    }
+
     public String getVerdictImage(String verdict) {
         HashMap<String, String> map = new HashMap<>();
         List<String> verdictNames = FlameGameUtil.getVerdictNameList();
@@ -38,7 +40,6 @@ public class FlameServiceImpl implements FlameService {
         return map.get( verdict );
     }
 
-    @Override
     public void displayAdditionalInfo() {
         flameGame.displayAdditionalInfo();
     }

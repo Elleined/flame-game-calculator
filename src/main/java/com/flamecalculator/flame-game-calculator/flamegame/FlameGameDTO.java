@@ -30,7 +30,7 @@ public class FlameGameDTO {
         crushNameUniqueLetters.stream()
                 .map(Objects::toString)
                 .forEach(crushNameJoiner::add);
-        System.out.println("Your name unique letters: " + crushNameJoiner);
+        System.out.println("Crush name unique letters: " + crushNameJoiner);
 
         StringJoiner mergeNameJoiner = new StringJoiner(", ");
         mergeNameLetters.stream()
