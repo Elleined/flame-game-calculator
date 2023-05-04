@@ -1,4 +1,4 @@
-package com.lovecalculator.SpringWebPractice;
+package com.flamecalculator.FlameGameCalculator;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -1,4 +1,4 @@
-package com.lovecalculator.SpringWebPractice.flamegame;
+package com.flamecalculator.FlameGameCalculator.flamegame;
 
 import org.springframework.stereotype.Component;
 
@@ -12,11 +12,11 @@ public class FlameGame {
     private String yourName;
     private String crushName;
     private String verdict;
-    private final com.lovecalculator.SpringWebPractice.flamegame.FlameGameDTO flameGameDTO = new com.lovecalculator.SpringWebPractice.flamegame.FlameGameDTO();
+    private final FlameGameDTO flameGameDTO = new FlameGameDTO();
 
     private LinkedList<Character> getMergeName() {
-        List<Character> yourNameArray = com.lovecalculator.SpringWebPractice.flamegame.FlameGameUtil.toCharArray(this.yourName);
-        List<Character> crushNameArray = com.lovecalculator.SpringWebPractice.flamegame.FlameGameUtil.toCharArray(this.crushName);
+        List<Character> yourNameArray = FlameGameUtil.toCharArray(this.yourName);
+        List<Character> crushNameArray = FlameGameUtil.toCharArray(this.crushName);
 
         LinkedList<Character> yourNameList = new LinkedList<>(yourNameArray);
         LinkedList<Character> crushNameList = new LinkedList<>(crushNameArray);
@@ -48,12 +48,12 @@ public class FlameGame {
     }
 
     private void calculateGameVerdict() {
-        List<String> list = com.lovecalculator.SpringWebPractice.flamegame.FlameGameUtil.getVerdictNameList();
+        List<String> list = FlameGameUtil.getVerdictNameList();
 
         final int nameLength = this.getTotalLetters();
-        int nTimesToCopy = com.lovecalculator.SpringWebPractice.flamegame.FlameGameUtil.nTimeToCopy(nameLength);
+        int nTimesToCopy = FlameGameUtil.nTimeToCopy(nameLength);
 
-        List<String> tripleList = com.lovecalculator.SpringWebPractice.flamegame.FlameGameUtil.copyListByItselfNTimes(list, nTimesToCopy);
+        List<String> tripleList = FlameGameUtil.copyListByItselfNTimes(list, nTimesToCopy);
 
         while (list.size() != 1) {
             String removeElement = tripleList.get(nameLength - 1);
@@ -69,7 +69,7 @@ public class FlameGame {
                     .toList());
 
             tripleList.clear();
-            com.lovecalculator.SpringWebPractice.flamegame.FlameGameUtil.copyListNTimes(tripleList, tempList, 5);
+            FlameGameUtil.copyListNTimes(tripleList, tempList, 5);
             list.remove( removeElement );
             while (tripleList.size() <= nameLength) {
                 tripleList.addAll(tempList);

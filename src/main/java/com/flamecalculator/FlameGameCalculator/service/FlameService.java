@@ -1,8 +1,8 @@
-package com.lovecalculator.SpringWebPractice.service;
+package com.flamecalculator.FlameGameCalculator.service;
 
-import com.lovecalculator.SpringWebPractice.dto.User;
-import com.lovecalculator.SpringWebPractice.flamegame.FlameGame;
-import com.lovecalculator.SpringWebPractice.flamegame.FlameGameUtil;
+import com.flamecalculator.FlameGameCalculator.flamegame.FlameGame;
+import com.flamecalculator.FlameGameCalculator.flamegame.FlameGameUtil;
+import com.flamecalculator.FlameGameCalculator.dto.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

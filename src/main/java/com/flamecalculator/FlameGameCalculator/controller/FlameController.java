@@ -1,7 +1,7 @@
-package com.lovecalculator.SpringWebPractice.controller;
+package com.flamecalculator.FlameGameCalculator.controller;
 
-import com.lovecalculator.SpringWebPractice.dto.User;
-import com.lovecalculator.SpringWebPractice.service.FlameService;
+import com.flamecalculator.FlameGameCalculator.dto.User;
+import com.flamecalculator.FlameGameCalculator.service.FlameService;
 import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

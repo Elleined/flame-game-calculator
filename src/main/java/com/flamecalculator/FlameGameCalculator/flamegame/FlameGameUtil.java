@@ -1,4 +1,4 @@
-package com.lovecalculator.SpringWebPractice.flamegame;
+package com.flamecalculator.FlameGameCalculator.flamegame;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -8,7 +8,7 @@ public interface FlameGameUtil {
 
     static List<String> getVerdictNameList() {
         List<String> list = new ArrayList<>();
-        for (com.lovecalculator.SpringWebPractice.flamegame.Verdict verdict : com.lovecalculator.SpringWebPractice.flamegame.Verdict.values()) {
+        for (Verdict verdict : Verdict.values()) {
             list.add(verdict.name());
         }
         return list;

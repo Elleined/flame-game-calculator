@@ -1,4 +1,4 @@
-package com.lovecalculator.SpringWebPractice.flamegame;
+package com.flamecalculator.FlameGameCalculator.flamegame;
 
 import lombok.Data;
 
